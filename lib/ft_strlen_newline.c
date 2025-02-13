@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen_newline.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfidelis <vfidelis@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 15:45:09 by vfidelis          #+#    #+#             */
-/*   Updated: 2025/02/12 17:23:35 by vfidelis         ###   ########.fr       */
+/*   Created: 2025/02/13 06:36:22 by vfidelis          #+#    #+#             */
+/*   Updated: 2025/02/13 08:31:38 by vfidelis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(int argc, char **argv)
+size_t	ft_strlen_newline(char *str)
 {
-	t_matrix	matrix;
+	size_t	i;
 
-	matrix.matriz_map = NULL;
-	if (argc == 2)
-	{
-		ft_parsing(argv[1], &matrix);
-	}
+	i = 0;
+	while (str[i] != '\0' && str[i] != '\n')
+		i++;
+	return (i);
 }

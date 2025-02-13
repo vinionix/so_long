@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfidelis <vfidelis@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 15:45:09 by vfidelis          #+#    #+#             */
-/*   Updated: 2025/02/12 17:23:35 by vfidelis         ###   ########.fr       */
+/*   Created: 2025/02/13 08:25:20 by vfidelis          #+#    #+#             */
+/*   Updated: 2025/02/13 08:25:40 by vfidelis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void    ft_error(t_matrix *ft_matrix)
 {
-	t_matrix	matrix;
-
-	matrix.matriz_map = NULL;
-	if (argc == 2)
-	{
-		ft_parsing(argv[1], &matrix);
-	}
+    ft_free_lst(ft_matrix->ft_map);
+	perror("Error");
+	exit(1);
 }

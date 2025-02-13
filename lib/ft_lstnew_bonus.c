@@ -6,20 +6,21 @@
 /*   By: vfidelis <vfidelis@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 17:28:11 by vfidelis          #+#    #+#             */
-/*   Updated: 2025/02/12 23:54:21 by vfidelis         ###   ########.fr       */
+/*   Updated: 2025/02/13 06:09:57 by vfidelis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../so_long.h"
 
 t_map	*ft_lstnew(char *content)
 {
 	t_map	*list;
 
-	list = (t_list *)malloc(sizeof(t_map));
+	list = (t_map *)malloc(sizeof(t_map));
 	if (!list)
 		return (NULL);
 	list->str = content;
+    list->prev = NULL;
 	list->next = NULL;
 	return (list);
 }

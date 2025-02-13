@@ -6,15 +6,15 @@
 /*   By: vfidelis <vfidelis@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 13:25:21 by vfidelis          #+#    #+#             */
-/*   Updated: 2024/10/15 13:25:29 by vfidelis         ###   ########.fr       */
+/*   Updated: 2025/02/13 05:41:01 by vfidelis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../so_long.h"
 
-int	ft_lstsize(t_list *lst)
+size_t	ft_lstsize(t_map *lst)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (lst)

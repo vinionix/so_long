@@ -6,7 +6,7 @@
 /*   By: vfidelis <vfidelis@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:58:38 by vfidelis          #+#    #+#             */
-/*   Updated: 2025/02/13 00:33:55 by vfidelis         ###   ########.fr       */
+/*   Updated: 2025/02/13 08:26:16 by vfidelis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 typedef struct j_list
 {
+	struct j_list	*prev;
 	char			*str;
 	struct j_list	*next;
 }	t_map;
@@ -30,16 +31,26 @@ typedef struct j_list
 typedef struct h_list
 {
 	char			**matriz_map;
-	int				len_x;
-	int				len_y;
+	size_t				len_x;
+	size_t				len_y;
 	t_map	*ft_map;
 }	t_matrix;
 
 
 t_map				*ft_lstnew(char *content);
 
+size_t				ft_lstsize(t_map *lst);
+
+size_t				ft_strlen_newline(char *str);
+
+void				ft_free_lst(t_map *a);
+
 void				ft_lstadd_back(t_map **lst, t_map *new);
 
-void				ft_free_lst(t_map **a);
+void				ft_free_lst(t_map *a);
+
+void				ft_parsing(char *argv, t_matrix *matrix);
+
+void				ft_error(t_matrix *ft_matrix);
 
 #endif

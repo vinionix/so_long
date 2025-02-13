@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_free_lst.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfidelis <vfidelis@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 15:45:09 by vfidelis          #+#    #+#             */
-/*   Updated: 2025/02/12 17:23:35 by vfidelis         ###   ########.fr       */
+/*   Created: 2025/02/13 06:39:17 by vfidelis          #+#    #+#             */
+/*   Updated: 2025/02/13 08:30:58 by vfidelis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(int argc, char **argv)
+void	ft_free_lst(t_map *a)
 {
-	t_matrix	matrix;
+	t_map	*temp;
 
-	matrix.matriz_map = NULL;
-	if (argc == 2)
+	temp = NULL;
+	while (a)
 	{
-		ft_parsing(argv[1], &matrix);
+		temp = a->next;
+		free(a->str);
+		free(a);
+		a = temp;
 	}
 }

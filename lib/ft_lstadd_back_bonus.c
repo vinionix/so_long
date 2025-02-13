@@ -6,11 +6,11 @@
 /*   By: vfidelis <vfidelis@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 13:23:06 by vfidelis          #+#    #+#             */
-/*   Updated: 2025/02/12 23:54:16 by vfidelis         ###   ########.fr       */
+/*   Updated: 2025/02/13 06:15:30 by vfidelis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../so_long.h"
 
 void	ft_lstadd_back(t_map **lst, t_map *new)
 {
@@ -26,6 +26,7 @@ void	ft_lstadd_back(t_map **lst, t_map *new)
 	receptor = *lst;
 	while (receptor->next != NULL)
 		receptor = receptor->next;
+    new->prev = receptor;
 	receptor->next = new;
 }
 

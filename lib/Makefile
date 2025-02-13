@@ -6,7 +6,7 @@
 #    By: vfidelis <vfidelis@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/13 15:51:13 by vfidelis          #+#    #+#              #
-#    Updated: 2024/09/13 18:30:44 by vfidelis         ###   ########.fr        #
+#    Updated: 2025/02/13 05:48:49 by vfidelis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ FILEC = ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strdup.c ft_memset.c \
 		ft_split.c ft_strtrim.c ft_putchar_fd.c ft_strnstr.c ft_strmapi.c \
 		ft_striteri.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-FILEB = ft_lstnew_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstdelone_bonus.c \
-	ft_lstadd_front_bonus.c ft_lstadd_back_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c
+FILEB = ft_lstlast_bonus.c ft_lstdelone_bonus.c \
+	ft_lstadd_front_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c
 
 NAME_BONUS = $(FILEB:.c=.o)
 NAME_OBJS = $(FILEC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: vfidelis <vfidelis@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 16:29:57 by vfidelis          #+#    #+#             */
-/*   Updated: 2025/02/12 23:55:26 by vfidelis         ###   ########.fr       */
+/*   Updated: 2025/02/13 05:35:07 by vfidelis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,6 @@ typedef struct s_list
 }					t_list;
 
 void				ft_lstadd_front(t_list **lst, t_list *new);
-
-int					ft_lstsize(t_list *lst);
 
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 
