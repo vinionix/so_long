@@ -33,7 +33,8 @@ typedef struct h_list
 	char			**matriz_map;
 	size_t				len_x;
 	size_t				len_y;
-	t_map	*ft_map;
+	size_t				c;
+	t_map				*ft_map;
 }	t_matrix;
 
 
@@ -43,7 +44,11 @@ size_t				ft_lstsize(t_map *lst);
 
 size_t				ft_strlen_newline(char *str);
 
-void				ft_free_lst(t_map *a);
+size_t				ft_len_last(t_map *ft_map);
+
+size_t				ft_last_lst(t_matrix *ft_matrix);
+
+size_t				ft_strrchr(const char *str, int c);
 
 void				ft_lstadd_back(t_map **lst, t_map *new);
 

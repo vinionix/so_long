@@ -17,7 +17,9 @@ size_t	ft_strlen_newline(char *str)
 	size_t	i;
 
 	i = 0;
-	while (str[i] != '\0' && str[i] != '\n')
+	while (str[i] != '\0')
 		i++;
+	if (str[i - 1] == '\n')
+		i = i - 2;
 	return (i);
 }

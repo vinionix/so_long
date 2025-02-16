@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_last_lst.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfidelis <vfidelis@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 17:56:46 by vfidelis          #+#    #+#             */
-/*   Updated: 2024/09/12 17:56:59 by vfidelis         ###   ########.fr       */
+/*   Created: 2025/02/16 04:05:13 by vfidelis          #+#    #+#             */
+/*   Updated: 2025/02/16 04:05:13 by vfidelis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../so_long.h"
 
-void	*ft_memset(void *string, int character, size_t num)
+size_t	ft_last_lst(t_matrix *ft_matrix)
 {
 	size_t	i;
-
+	t_map	*receiver;
+	
 	i = 0;
-	while (i < num)
-	{
-		((unsigned char *)string)[i] = (unsigned char)character;
+	receiver = ft_matrix->ft_map;
+	while(receiver->next->next != NULL)
+		receiver = receiver->next;
+	while(receiver->str[i] != '\0')
 		i++;
-	}
-	return (string);
+	if (receiver->str[i - 1] == '\n')
+		ft_error(ft_matrix);
+	return (i);
 }
-
-/*int	main(void)
-{
-	char	arr[10];
-
-	printf("%s", (char *)ft_memset(arr, 65, 10));
-}*/
