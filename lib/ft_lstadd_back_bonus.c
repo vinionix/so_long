@@ -26,7 +26,7 @@ void	ft_lstadd_back(t_map **lst, t_map *new)
 	receptor = *lst;
 	while (receptor->next != NULL)
 		receptor = receptor->next;
-    new->prev = receptor;
+	new->prev = receptor;
 	receptor->next = new;
 }
 

@@ -12,9 +12,9 @@
 
 #include "so_long.h"
 
-void    ft_error(t_matrix *ft_matrix)
+void	ft_error(t_matrix *ft_matrix)
 {
-    ft_free_lst(ft_matrix->ft_map);
+	ft_free_lst(ft_matrix->ft_map);
 	perror("Error");
 	exit(1);
 }

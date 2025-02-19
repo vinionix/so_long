@@ -25,7 +25,8 @@ FILEC = gnl/get_next_line_utils.c \
 		lib/ft_free_lst.c \
 		lib/ft_strlcpy.c \
 		lib/ft_last_lst.c \
-		lib/ft_strrchr.c
+		lib/ft_strrchr.c \
+		lib/ft_create_matrix.c
 
 
 NAME_OBJS = $(FILEC:.c=.o)

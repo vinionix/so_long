@@ -16,12 +16,12 @@ size_t	ft_last_lst(t_matrix *ft_matrix)
 {
 	size_t	i;
 	t_map	*receiver;
-	
+
 	i = 0;
 	receiver = ft_matrix->ft_map;
-	while(receiver->next->next != NULL)
+	while (receiver->next->next != NULL)
 		receiver = receiver->next;
-	while(receiver->str[i] != '\0')
+	while (receiver->str[i] != '\0')
 		i++;
 	if (receiver->str[i - 1] == '\n')
 		ft_error(ft_matrix);

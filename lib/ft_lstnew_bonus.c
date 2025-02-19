@@ -20,7 +20,7 @@ t_map	*ft_lstnew(char *content)
 	if (!list)
 		return (NULL);
 	list->str = content;
-    list->prev = NULL;
+	list->prev = NULL;
 	list->next = NULL;
 	return (list);
 }

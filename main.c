@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_matrix	matrix;
 
-	matrix.matriz_map = NULL;
+	matrix.matrix_map = NULL;
 	if (argc == 2)
 	{
 		ft_parsing(argv[1], &matrix);

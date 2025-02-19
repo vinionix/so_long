@@ -30,13 +30,12 @@ typedef struct j_list
 
 typedef struct h_list
 {
-	char			**matriz_map;
+	char				**matrix_map;
 	size_t				len_x;
 	size_t				len_y;
 	size_t				c;
 	t_map				*ft_map;
 }	t_matrix;
-
 
 t_map				*ft_lstnew(char *content);
 
@@ -57,5 +56,7 @@ void				ft_free_lst(t_map *a);
 void				ft_parsing(char *argv, t_matrix *matrix);
 
 void				ft_error(t_matrix *ft_matrix);
+
+void				ft_create_matrix(t_matrix *ft_matrix);
 
 #endif
