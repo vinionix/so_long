@@ -37,26 +37,26 @@ typedef struct h_list
 	t_map				*ft_map;
 }	t_matrix;
 
-t_map				*ft_lstnew(char *content);
+t_map	*ft_lstnew(char *content);
 
-size_t				ft_lstsize(t_map *lst);
+size_t	ft_lstsize(t_map *lst);
 
-size_t				ft_strlen_newline(char *str);
+size_t	ft_strlen_newline(char *str);
 
-size_t				ft_len_last(t_map *ft_map);
+size_t	ft_len_last(t_map *ft_map);
 
-size_t				ft_last_lst(t_matrix *ft_matrix);
+size_t	ft_last_lst(t_matrix *ft_matrix);
 
-size_t				ft_strrchr(const char *str, int c);
+size_t	ft_strrchr(const char *str, int c);
 
-void				ft_lstadd_back(t_map **lst, t_map *new);
+void	ft_lstadd_back(t_map **lst, t_map *new);
 
-void				ft_free_lst(t_map *a);
+void	ft_free_lst(t_map *a);
 
-void				ft_parsing(char *argv, t_matrix *matrix);
+void	ft_parsing(char *argv, t_matrix *matrix);
 
-void				ft_error(t_matrix *ft_matrix);
+void	ft_error(t_matrix *ft_matrix);
 
-void				ft_create_matrix(t_matrix *ft_matrix);
+void	ft_create_matrix(t_matrix *ft_matrix, char **matrix, int opitions);
 
 #endif

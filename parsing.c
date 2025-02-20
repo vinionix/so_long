@@ -12,17 +12,57 @@
 
 #include "so_long.h"
 
-static void	ft_flood_fill(char **grid, size_t r, size_t c, t_matrix *ft_matrix)
+static void	ft_flood_fill(char **grid, int l, int c, t_matrix *ft_matrix)
 {
-	if (r < 0 || r >= ft_matrix->len_x || c < 0 || c >= ft_matrix->len_y)
+	if (l < 0 || c < 0 || l >= (int)ft_matrix->len_x
+		|| c >= (int)ft_matrix->len_y)
 		return ;
-	if (grid[r][c] != '0' || grid[r][c] != 'C' || grid[r][c] != 'E')
+	if (grid[l][c] != '0' && grid[l][c] != 'C' && grid[l][c] != 'E'
+		&& grid[l][c] != 'P')
 		return ;
-	grid[r][c] = 'f';
-	ft_flood_fill(grid, r - 1, c, ft_matrix);
-	ft_flood_fill(grid, r + 1, c, ft_matrix);
-	ft_flood_fill(grid, r, c - 1, ft_matrix);
-	ft_flood_fill(grid, r, c + 1, ft_matrix);
+	grid[l][c] = 'F';
+	ft_flood_fill(grid, l - 1, c, ft_matrix);
+	ft_flood_fill(grid, l + 1, c, ft_matrix);
+	ft_flood_fill(grid, l, c - 1, ft_matrix);
+	ft_flood_fill(grid, l, c + 1, ft_matrix);
+}
+
+void static	ft_verify_floodf(t_matrix *ft_matrix)
+{
+	char	**matrix;
+	int		l;
+	int		c;
+
+	l = 0;
+	c = 0;
+	matrix = malloc(sizeof(char *) * ft_lstsize(ft_matrix->ft_map));
+	ft_create_matrix(ft_matrix, matrix, 2);
+	while (matrix[l] != NULL)
+	{
+		while (matrix[l][c] != 'P' && matrix[l][c] != '\0')
+			c++;
+		if (matrix[l][c] == 'P')
+			break ;
+		c = 0;
+		l++;
+	}
+	ft_flood_fill(matrix, l, c, ft_matrix);
+	l = 0;
+	c = 0;
+	while (matrix[l] != NULL)
+	{
+		while (matrix[l][c] != '\0')
+		{
+			if (matrix[l][c] == 'C' || matrix[l][c] == 'E')
+			{
+				printf("Se fodeu");
+				exit(1);
+			}
+			c++;
+		}
+		c = 0;
+		l++;
+	}
 }
 
 static void	ft_checker_pec01(t_matrix *ft_matrix, int i)
@@ -56,14 +96,8 @@ static void	ft_checker_pec01(t_matrix *ft_matrix, int i)
 	}
 	if (p != 1 || e != 1)
 		ft_error(ft_matrix);
-	ft_create_matrix(ft_matrix);
-	e = 0;
-	while (ft_matrix->matrix_map[e])
-	{
-		printf("%s", ft_matrix->matrix_map[e]);
-		e++;
-	}
-	ft_flood_fill(ft_matrix->matrix_map, r, c, ft_matrix);
+	ft_create_matrix(ft_matrix, NULL, 1);
+	ft_verify_floodf(ft_matrix);
 }
 
 static void	ft_checker_wall(t_matrix *ft_matrix)
