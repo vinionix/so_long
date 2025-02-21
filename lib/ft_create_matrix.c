@@ -6,7 +6,7 @@
 /*   By: vfidelis <vfidelis@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 20:51:55 by vfidelis          #+#    #+#             */
-/*   Updated: 2025/02/19 18:43:03 by vfidelis         ###   ########.fr       */
+/*   Updated: 2025/02/21 07:42:46 by vfidelis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ void	ft_create_matrix(t_matrix *ft_matrix, char **matrix, int options)
 {
 	t_map	*map;
 	size_t	i;
+	size_t	j;
 
 	i = 0;
+	j = 0;
 	map = ft_matrix->ft_map;
 	if (options == 1)
 	{
@@ -34,9 +36,16 @@ void	ft_create_matrix(t_matrix *ft_matrix, char **matrix, int options)
 	{
 		while (map->next != NULL)
 		{
-			matrix[i] = map->str;
+			matrix[i] = malloc(sizeof(char) * (ft_strlen(map->str) + 1));
+			while (map->str[j])
+			{
+				matrix[i][j] = map->str[j];
+				j++;
+			}
+			j = 0;
 			i++;
 			map = map->next;
 		}
 	}
+	i = 0;
 }

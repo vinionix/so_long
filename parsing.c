@@ -71,7 +71,6 @@ static void	ft_checker_pec01(t_matrix *ft_matrix, int i)
 	t_map	*map;
 	int		p;
 	int		e;
-	size_t	len;
 
 	p = 0;
 	e = 0;

@@ -12,7 +12,13 @@
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+# define ESC_KEY 65307
+# define W_KEY   119
+# define A_KEY   97
+# define S_KEY   115
+# define D_KEY   100
 
+#include "minilibx-linux/mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -21,20 +27,33 @@
 # include "gnl/get_next_line.h"
 # include "lib/libft.h"
 
-typedef struct j_list
+
+typedef struct	j_list
 {
 	struct j_list	*prev;
 	char			*str;
 	struct j_list	*next;
 }	t_map;
 
-typedef struct h_list
+typedef struct	s_assets
 {
+	void *player;
+	void *wall;
+	void *floor;
+	void *collectible;
+	void *exit;
+}	t_assets;
+
+typedef struct	h_list
+{
+	void				*mlx;
+	void				*win;
 	char				**matrix_map;
 	size_t				len_x;
 	size_t				len_y;
 	size_t				c;
 	t_map				*ft_map;
+	t_assets			assets;
 }	t_matrix;
 
 t_map	*ft_lstnew(char *content);
@@ -58,5 +77,13 @@ void	ft_parsing(char *argv, t_matrix *matrix);
 void	ft_error(t_matrix *ft_matrix);
 
 void	ft_create_matrix(t_matrix *ft_matrix, char **matrix, int opitions);
+
+void	ft_render_map(t_matrix *matrix);
+
+void	ft_load_assets(t_matrix *matrix);
+
+void	ft_move_player(t_matrix *matrix, int dx, int dy);
+
+int		ft_handle_keypress(int keycode, t_matrix *matrix);
 
 #endif

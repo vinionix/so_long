@@ -9,15 +9,23 @@
 #    Updated: 2025/02/13 08:57:58 by vfidelis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 LIB = so_long.a
 COMP = cc
 FLAGS = -Wall -Wextra -Werror
+
+# Caminho da MiniLibX
+MLX_PATH = minilibx-linux
+MLX_FLAGS = -L$(MLX_PATH) -lmlx -lXext -lX11 -lm
+INCLUDES = -I$(MLX_PATH)
 
 FILEC = gnl/get_next_line_utils.c \
 		gnl/get_next_line.c \
 		parsing.c \
 		ft_error.c \
+		ft_handle_keypress.c \
+		ft_load_assets.c \
+		ft_render_map.c \
+		ft_move_player.c \
 		lib/ft_lstnew_bonus.c \
 		lib/ft_lstsize_bonus.c \
 		lib/ft_lstadd_back_bonus.c \
@@ -28,31 +36,28 @@ FILEC = gnl/get_next_line_utils.c \
 		lib/ft_strrchr.c \
 		lib/ft_create_matrix.c
 
-
 NAME_OBJS = $(FILEC:.c=.o)
 
 REMO = rm -rf
-
 CREATE_LIB = ar -rcs
-
 NAME = so_long
 
 all: $(NAME)
-	
+
 $(LIB): $(NAME_OBJS)
 	$(CREATE_LIB) $(LIB) $(NAME_OBJS)
 
 $(NAME): $(LIB)
-	$(COMP) $(FLAGS) main.c $(LIB) -o $(NAME)
-.o: .c 
-	$(COMP) $(FLAGS) -I ./ -c $< -o $@
-	
+	$(COMP) $(FLAGS) main.c $(LIB) -o $(NAME) $(INCLUDES) $(MLX_FLAGS)
+
+%.o: %.c
+	$(COMP) $(FLAGS) $(INCLUDES) -c $< -o $@
+
 clean:
 	@$(REMO) $(NAME_OBJS)
-	
+
 fclean: clean
 	@$(REMO) $(NAME) $(LIB)
-
 
 re: fclean all
 
