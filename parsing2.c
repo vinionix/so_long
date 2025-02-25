@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_move_player.c                                   :+:      :+:    :+:   */
+/*   parsing2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfidelis <vfidelis@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/21 06:42:42 by vfidelis          #+#    #+#             */
-/*   Updated: 2025/02/25 17:26:07 by vfidelis         ###   ########.fr       */
+/*   Created: 2025/02/25 15:46:20 by vfidelis          #+#    #+#             */
+/*   Updated: 2025/02/25 17:20:51 by vfidelis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_move_player(t_matrix *matrix, int dy, int dx)
+void    aux_verify_floodf(char **matrix, t_matrix *ft_matrix)
 {
-	if (matrix->matrix_map[dx][dy] != '1')
+    int     x;
+    int     y;
+
+	x = 0;
+	y = 0;
+	while (matrix[x] != NULL)
 	{
-		if (matrix->matrix_map[dx][dy] == 'C'
-			|| matrix->matrix_map[dx][dy] != 'E')
+		while (matrix[x][y] != '\0')
 		{
-			matrix->player_x = dx;
-			matrix->player_y = dy;
-			if (matrix->matrix_map[dx][dy] == 'C')
-			{
-				matrix->c--;
-				matrix->matrix_map[dx][dy] = '0';
-			}
+			if (matrix[x][y] == 'C')
+            {
+				ft_free(matrix);
+                ft_free(ft_matrix->matrix_map);
+                exit(1);
+            }
+			y++;
 		}
-		else if (matrix->matrix_map[dx][dy] == 'E' && matrix->c == 0)
-			ft_destroy_win(matrix);
+		y = 0;
+		x++;
 	}
+    ft_free_lst(ft_matrix->ft_map);
 }

@@ -20,8 +20,8 @@ void	ft_free_lst(t_map *a)
 	while (a)
 	{
 		temp = a;
+		a = a->next;
 		free(temp->str);
 		free(temp);
-		a = a->next;
 	}
 }

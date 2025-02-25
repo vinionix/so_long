@@ -17,8 +17,7 @@ static void	ft_flood_fill(char **grid, int l, int c, t_matrix *ft_matrix)
 	if (l < 0 || c < 0 || l >= (int)ft_matrix->len_x
 		|| c >= (int)ft_matrix->len_y)
 		return ;
-	if (grid[l][c] != '0' && grid[l][c] != 'C' && grid[l][c] != 'E'
-		&& grid[l][c] != 'P')
+	if (grid[l][c] != '0' && grid[l][c] != 'C' && grid[l][c] != 'P')
 		return ;
 	grid[l][c] = 'F';
 	ft_flood_fill(grid, l - 1, c, ft_matrix);
@@ -47,22 +46,7 @@ void static	ft_verify_floodf(t_matrix *ft_matrix)
 		l++;
 	}
 	ft_flood_fill(matrix, l, c, ft_matrix);
-	l = 0;
-	c = 0;
-	while (matrix[l] != NULL)
-	{
-		while (matrix[l][c] != '\0')
-		{
-			if (matrix[l][c] == 'C' || matrix[l][c] == 'E')
-			{
-				printf("Se fodeu");
-				exit(1);
-			}
-			c++;
-		}
-		c = 0;
-		l++;
-	}
+	aux_verify_floodf(matrix, ft_matrix);
 }
 
 static void	ft_checker_pec01(t_matrix *ft_matrix, int i)

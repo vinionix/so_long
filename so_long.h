@@ -18,7 +18,7 @@
 # define S_KEY   115
 # define D_KEY   100
 
-#include "minilibx-linux/mlx.h"
+# include "minilibx-linux/mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -27,24 +27,23 @@
 # include "gnl/get_next_line.h"
 # include "lib/libft.h"
 
-
-typedef struct	j_list
+typedef struct j_list
 {
 	struct j_list	*prev;
 	char			*str;
 	struct j_list	*next;
 }	t_map;
 
-typedef struct	s_assets
+typedef struct s_assets
 {
-	void *player;
-	void *wall;
-	void *floor;
-	void *collectible;
-	void *exit;
+	void	*player;
+	void	*wall;
+	void	*floor;
+	void	*collectible;
+	void	*exit;
 }	t_assets;
 
-typedef struct	h_list
+typedef struct h_list
 {
 	void				*mlx;
 	void				*win;
@@ -52,6 +51,8 @@ typedef struct	h_list
 	size_t				len_x;
 	size_t				len_y;
 	size_t				c;
+	int					player_y;
+	int					player_x;
 	t_map				*ft_map;
 	t_assets			assets;
 }	t_matrix;
@@ -82,7 +83,17 @@ void	ft_render_map(t_matrix *matrix);
 
 void	ft_load_assets(t_matrix *matrix);
 
-void	ft_move_player(t_matrix *matrix, int dx, int dy);
+void	ft_move_player(t_matrix *matrix, int dy, int dx);
+
+void    aux_verify_floodf(char **matrix, t_matrix *ft_matrix);
+
+void	player_pos(t_matrix *matrix);
+
+void    ft_free(char **matrix);
+
+void	free_assets(t_matrix *matrix);
+
+int		ft_destroy_win(t_matrix *matrix);
 
 int		ft_handle_keypress(int keycode, t_matrix *matrix);
 

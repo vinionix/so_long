@@ -21,6 +21,7 @@ INCLUDES = -I$(MLX_PATH)
 FILEC = gnl/get_next_line_utils.c \
 		gnl/get_next_line.c \
 		parsing.c \
+		parsing2.c \
 		ft_error.c \
 		ft_handle_keypress.c \
 		ft_load_assets.c \
@@ -34,7 +35,8 @@ FILEC = gnl/get_next_line_utils.c \
 		lib/ft_strlcpy.c \
 		lib/ft_last_lst.c \
 		lib/ft_strrchr.c \
-		lib/ft_create_matrix.c
+		lib/ft_create_matrix.c \
+		lib/ft_free.c
 
 NAME_OBJS = $(FILEC:.c=.o)
 
@@ -48,10 +50,10 @@ $(LIB): $(NAME_OBJS)
 	$(CREATE_LIB) $(LIB) $(NAME_OBJS)
 
 $(NAME): $(LIB)
-	$(COMP) $(FLAGS) main.c $(LIB) -o $(NAME) $(INCLUDES) $(MLX_FLAGS)
+	$(COMP) $(FLAGS) -g main.c $(LIB) -o $(NAME) $(INCLUDES) $(MLX_FLAGS) 
 
 %.o: %.c
-	$(COMP) $(FLAGS) $(INCLUDES) -c $< -o $@
+	$(COMP) -g $(FLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	@$(REMO) $(NAME_OBJS)
