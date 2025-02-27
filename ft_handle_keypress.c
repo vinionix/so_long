@@ -6,7 +6,7 @@
 /*   By: vfidelis <vfidelis@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 06:11:16 by vfidelis          #+#    #+#             */
-/*   Updated: 2025/02/25 18:05:18 by vfidelis         ###   ########.fr       */
+/*   Updated: 2025/02/26 22:36:48 by vfidelis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,19 @@
 
 int	ft_destroy_win(t_matrix *matrix)
 {
+	mlx_destroy_image(matrix->mlx, matrix->assets.player);
+	mlx_destroy_image(matrix->mlx, matrix->assets.wall);
+	mlx_destroy_image(matrix->mlx, matrix->assets.floor);
+	mlx_destroy_image(matrix->mlx, matrix->assets.collectible);
+	mlx_destroy_image(matrix->mlx, matrix->assets.exit);
 	mlx_destroy_window(matrix->mlx, matrix->win);
-	mlx_destroy_display(matrix->mlx);
+	if (matrix->mlx)
+		mlx_destroy_display(matrix->mlx);
 	free(matrix->mlx);
-	ft_free(matrix->matrix_map);
+	if (matrix->matrix_map)
+		free(matrix->matrix_map);
+	if (matrix->ft_map)
+		ft_free_lst(matrix->ft_map);
 	exit(0);
 	return (0);
 }

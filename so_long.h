@@ -18,7 +18,7 @@
 # define S_KEY   115
 # define D_KEY   100
 
-# include "minilibx-linux/mlx.h"
+//# include "minilibx-linux/mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -75,7 +75,7 @@ void	ft_free_lst(t_map *a);
 
 void	ft_parsing(char *argv, t_matrix *matrix);
 
-void	ft_error(t_matrix *ft_matrix);
+void	ft_error(void);
 
 void	ft_create_matrix(t_matrix *ft_matrix, char **matrix, int opitions);
 
@@ -85,11 +85,11 @@ void	ft_load_assets(t_matrix *matrix);
 
 void	ft_move_player(t_matrix *matrix, int dy, int dx);
 
-void    aux_verify_floodf(char **matrix, t_matrix *ft_matrix);
+void	aux_verify_floodf(char **matrix, t_matrix *ft_matrix);
 
 void	player_pos(t_matrix *matrix);
 
-void    ft_free(char **matrix);
+void	ft_free(char **matrix);
 
 void	free_assets(t_matrix *matrix);
 

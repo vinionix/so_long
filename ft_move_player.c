@@ -6,7 +6,7 @@
 /*   By: vfidelis <vfidelis@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 06:42:42 by vfidelis          #+#    #+#             */
-/*   Updated: 2025/02/25 17:26:07 by vfidelis         ###   ########.fr       */
+/*   Updated: 2025/02/26 21:45:33 by vfidelis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_move_player(t_matrix *matrix, int dy, int dx)
 				matrix->matrix_map[dx][dy] = '0';
 			}
 		}
-		else if (matrix->matrix_map[dx][dy] == 'E' && matrix->c == 0)
+		if (matrix->matrix_map[dx][dy] == 'E' && matrix->c == 0)
 			ft_destroy_win(matrix);
 	}
 }

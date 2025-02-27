@@ -28,7 +28,7 @@ void	free_assets(t_matrix *matrix)
 
 void	ft_free(char **matrix)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	if (matrix != NULL)

@@ -19,9 +19,12 @@ void	ft_free_lst(t_map *a)
 	temp = NULL;
 	while (a)
 	{
-		temp = a;
-		a = a->next;
-		free(temp->str);
-		free(temp);
+		temp = a->next;
+		if (a->str)
+		{	
+			free(a->str);
+		}
+		free(a);
+		a = temp;
 	}
 }

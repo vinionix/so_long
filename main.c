@@ -15,11 +15,10 @@
 int	main(int argc, char **argv)
 {
 	t_matrix	matrix;
-	t_map		map;
 
+	matrix.matrix_map = NULL;
 	if (argc != 2)
-		ft_error(NULL);
-	matrix.ft_map = &map;
+		ft_error();
 	ft_parsing(argv[1], &matrix);
 	matrix.mlx = mlx_init();
 	matrix.win = mlx_new_window(matrix.mlx, matrix.len_y * 64, matrix.len_x
@@ -27,7 +26,6 @@ int	main(int argc, char **argv)
 	player_pos(&matrix);
 	ft_load_assets(&matrix);
 	ft_render_map(&matrix);
-	exit(1);
 	mlx_hook(matrix.win, 17, 0, ft_destroy_win, &matrix);
 	mlx_key_hook(matrix.win, ft_handle_keypress, &matrix);
 	mlx_loop(matrix.mlx);

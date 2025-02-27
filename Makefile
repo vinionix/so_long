@@ -12,8 +12,6 @@
 LIB = so_long.a
 COMP = cc
 FLAGS = -Wall -Wextra -Werror
-
-# Caminho da MiniLibX
 MLX_PATH = minilibx-linux
 MLX_FLAGS = -L$(MLX_PATH) -lmlx -lXext -lX11 -lm
 INCLUDES = -I$(MLX_PATH)
@@ -52,7 +50,7 @@ $(LIB): $(NAME_OBJS)
 $(NAME): $(LIB)
 	$(COMP) $(FLAGS) -g main.c $(LIB) -o $(NAME) $(INCLUDES) $(MLX_FLAGS) 
 
-%.o: %.c
+.o:.c
 	$(COMP) -g $(FLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
